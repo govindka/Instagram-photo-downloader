@@ -4,12 +4,11 @@ import time
 import urllib.request
 import os
 import json
-
-INSTAGRAM_USERNAME =input("Enter the username:")
-
+import tkinter
+INSTAGRAM_USERNAME=input("Enter the username:")
 
 class Instagram_Downloader:
-    def _init_(self, username):
+    def __init__(self, username):
         self.username = username
         self.user_id = ""
         self.jsondata = ""
@@ -41,7 +40,7 @@ class Instagram_Downloader:
         if os.path.isfile("resume_"+self.username+".txt"):
             with open("resume_"+self.username+".txt") as f:
                 self.hash_timeline = f.readline().strip()
-                print ("*****\nResume mode ON\n*****")
+                print ("****************\nResume mode ON\n****************")
                 return True
         else:
             print ("Not resume pending")
@@ -129,5 +128,5 @@ try:
             print("Done. All images/videos downloaded for "+INSTAGRAM_USERNAME+" account.")
             break
 except:
-    print("Notice: script premature finished due to daily limit of number of requests to Instagram API.")
-    print("Just execute script AGAIN in few hours to continue RESUME of pending images/videos to download.")
+    print("Finished")
+
